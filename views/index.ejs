@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploading</title>
+</head>
+
+<body>
+    <h1>Upload an image to get its colours</h1>
+    <hr>
+    <div>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name">Image Title</label>
+                <input type="text" id="name" placeholder="Name"
+                       value="" name="name" required>
+            </div>
+            <div>
+                <label for="desc">Image Description</label>
+                <textarea id="desc" name="desc" value="" rows="2"placeholder="Description" required></textarea>
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image"
+                       name="image" value="" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <h1>Uploaded Images</h1>
+    <div>
+        <% items.forEach(function(image) { %>
+        <div>
+            <div>
+                <img src="<%=image.path%>">
+                <div>
+                    <h5><%= image.name %></h5>
+                    <p><%= image.desc %></p>
+										<div id="col1" style="display: inline-block; border-radius: 25px 0px 0px 25px; background: <%=image.colour1%>; padding: 20px; width: 75px; height: 30px; "></div>
+										<div id="col1" style="display: inline-block; background: <%=image.colour2%>; padding: 20px; width: 75px; height: 30px; "></div>
+										<div id="col1" style="display: inline-block; background: <%=image.colour3%>; padding: 20px; width: 75px; height: 30px; "></div>
+										<div id="col1" style="display: inline-block; background: <%=image.colour4%>; padding: 20px; width: 75px; height: 30px; "></div>
+										<div id="col1" style="display: inline-block; border-radius: 0px 25px 25px 0px; background: <%=image.colour5%>; padding: 20px; width: 75px; height: 30px; "></div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+
+</html>
